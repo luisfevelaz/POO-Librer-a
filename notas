@@ -1,0 +1,21 @@
+Realizar una aplicación para simular el sistema de control de una librería.
+-clase libro
+    Título
+    Autor
+    ID
+
+    método para dar de alta lbros nuevos
+    método para eliminar libros
+    método para modificar un libro
+    método para búsquedas
+
+    Los métodos serán realizados mediante la propiedad id.
+
+
+    Local storage
+
+-Nos permite almacenar datos que persisten sin importar que el navegador se cierre o que el equip se apague.
+-Los datos almacenados se identifican por medio de un key(clave) y un valor.
+-Tiene un rango de almacenamiento de hasta 5MB.
+-La información se almacena directamente en el navegador.
+-A diferencia de las cookies no se envía como petición HTTP (al servidor). 
