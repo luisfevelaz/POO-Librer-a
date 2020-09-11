@@ -67,7 +67,7 @@ class LocalStorageOperation{
     }
 
     static noRepetir(infoLibro){
-        let arrayLibros = this.obtenerLS();
+        let arrayLibros = this.obtenerLS(); 
         let auxiliar = '';
 
         for(let i = 0; i< arrayLibros.length; i++){

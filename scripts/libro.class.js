@@ -29,7 +29,7 @@ class Libro {
     }
 
     eliminar(element) {
-        // Entran I O BUTTON
+        // Entran I O BUTTON x
         if(element.tagName === 'I' ){
             element.parentElement.parentElement.parentElement.parentElement.remove();
             LocalStorageOperation.borrarLibro(element.parentElement.parentElement.parentElement.parentElement.id)

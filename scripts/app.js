@@ -31,7 +31,7 @@ function prepararLibro() {
             autor: autor.value.trim()
         };
         let aux = LocalStorageOperation.noRepetir(infoLibro);
-        console.log(aux + 'devuelto');
+        console.log(aux + 'devuelto'); 
         if(aux == 'exito'){
             Swal.fire({
                 position: 'center',
