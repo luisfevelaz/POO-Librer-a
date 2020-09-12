@@ -34,6 +34,7 @@ function prepararLibro() {
             titulo: titulo.value.trim(),
             autor: autor.value.trim()
         };
+        
         let aux = LocalStorageOperation.noRepetir(infoLibro);
         console.log(aux + 'devuelto'); 
         if(aux == 'exito'){

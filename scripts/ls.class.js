@@ -88,6 +88,8 @@ class LocalStorageOperation{
         let arrayLibros = this.obtenerLS();
         let arrayNuevo = [];
 
+        
+
         for(let i = 0; i < arrayLibros.length; i++){
             if(idLibro == arrayLibros[i].id){
                 titulo.value = arrayLibros[i].titulo;
@@ -96,18 +98,40 @@ class LocalStorageOperation{
         }
 
         document.getElementById('confEdit').addEventListener('click', () => {
-            if((titulo.value.trim() != '' && autor.value.trim() != '') && (patern.test(titulo.value) && patern.test(autor.value))){
-                for(let i = 0; i < arrayLibros.length; i++){
-                    if(idLibro == arrayLibros[i].id){
-                        arrayLibros[i].titulo = titulo.value.trim();
-                        arrayLibros[i].autor = autor.value.trim();
-                    }
-                    arrayNuevo.push(arrayLibros[i]);
+           
 
+            if((titulo.value.trim() != '' && autor.value.trim() != '') && (patern.test(titulo.value) && patern.test(autor.value))){
+                const infoLibro = {
+                    id: 0,
+                    titulo: titulo.value.trim(),
+                    autor: autor.value.trim()
+                };
+
+
+                 let aux = this.noRepetir(infoLibro);
+                 console.log(aux + ' repetir');
+                 if(aux == ''){
+                     for(let i = 0; i < arrayLibros.length; i++){
+                         if(idLibro == arrayLibros[i].id){
+                             arrayLibros[i].titulo = titulo.value.trim();
+                             arrayLibros[i].autor = autor.value.trim();
+                         }
+                         arrayNuevo.push(arrayLibros[i]);
+     
+                     }
+                     localStorage.setItem('Libros',JSON.stringify(arrayNuevo));
+                     window.location.reload(false);   
+                }else{
+                    Swal.fire(
+                        'Libro repetido',
+                        `Este libro ya está registrado`,
+                        'error'
+                        );
                 }
-                localStorage.setItem('Libros',JSON.stringify(arrayNuevo));
-                window.location.reload(false);
-            }else{
+
+
+            }
+            else{
                 Swal.fire(
                     'Datos incorrectos',
                     `Los datos no son validos`,
@@ -115,6 +139,7 @@ class LocalStorageOperation{
                     );
             }
             //return true
+            //window.location.reload(false);
         });
 
 
