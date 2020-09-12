@@ -106,6 +106,39 @@
         </div>
       </div>
 
+      <!-- Modal para editar -->
+      <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Información del libro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form class="d-flex">
+                <div class="form-group col-md-6">
+                  <input type="text" name="" id="editTitulo" class="form-control" placeholder="" aria-describedby="helpId">
+                  <small id="helpId" class="text-muted">Título del libro para editar</small>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="text" name="" id="editAutor" class="form-control" placeholder="" aria-describedby="helpId2">
+                  <small id="helpId2" class="text-muted">Nombre del autor</small>
+                </div>
+              </form>
+
+              
+            </div>
+            <div class="modal-footer text-center">
+              <button id="confEdit" type="button" class="btn btn-outline-warning btn-block" ><i class="far fa-check-circle"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

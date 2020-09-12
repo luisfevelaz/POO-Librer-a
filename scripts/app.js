@@ -4,6 +4,9 @@ const titulo = document.getElementById('inputTitulo');
 const tabla = document.getElementById('tbody');
 const inputB = document.getElementById('inputB');
 
+const editTitulo = document.getElementById('editTitulo');
+const editAutor = document.getElementById('editAutor');
+
 const patern = /^[a-zA-ZÁ-ÿ0-9\s]{3,20}$/;
 
 const libro = new Libro();
@@ -11,6 +14,7 @@ const libro = new Libro();
 
 function eventListener() {
     document.getElementById('btnAdd').addEventListener('click', prepararLibro);
+    //document.getElementById('confEdit').addEventListener('click', confirmarEdicion);
     tabla.addEventListener('click', acciones);
     document.getElementById('btnVaciar').addEventListener('click', vaciarLibreria);
     document.getElementById('btnBuscar').addEventListener('click', buscarLibro);
@@ -82,6 +86,10 @@ function acciones(event) {
                 timer: 1000
               })
         }
+        if(event.target.className.includes('btn-outline-warning') || event.target.className.includes('fas fa-pencil-alt')){
+            libro.editar(event.target);
+            
+        }
 
 
     }
@@ -131,3 +139,12 @@ function buscarLibro(event){
     }
     inputB.value='';
 }
+
+// function confirmarEdicion(){
+//     if((editTitulo.value != '' && editAutor.value != '') && (patern.test(editTitulo.value) && patern.test(editAutor.value))){
+//         let arrayLibros = this.obtenerLS();
+//         let arrayNuevo = [];
+
+//         for()
+//     }
+// }

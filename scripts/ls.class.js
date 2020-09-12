@@ -77,4 +77,40 @@ class LocalStorageOperation{
         }
         return auxiliar;
     }
+
+    static editarLibro(idLibro){
+        const titulo = document.getElementById('editTitulo');
+        const autor = document.getElementById('editAutor');
+        const patern = /^[a-zA-ZÁ-ÿ0-9\s]{3,20}$/;
+
+        console.log(idLibro);
+
+        let arrayLibros = this.obtenerLS();
+        let arrayNuevo = [];
+
+        for(let i = 0; i < arrayLibros.length; i++){
+            if(idLibro == arrayLibros[i].id){
+                titulo.value = arrayLibros[i].titulo;
+                autor.value = arrayLibros[i].autor;
+            }
+        }
+
+        document.getElementById('confEdit').addEventListener('click', () => {
+            if((titulo.value.trim() != '' && autor.value.trim() != '') && (patern.test(titulo.value) && patern.test(autor.value))){
+                for(let i = 0; i < arrayLibros.length; i++){
+                    if(idLibro == arrayLibros[i].id){
+                        arrayLibros[i].titulo = titulo.value.trim();
+                        arrayLibros[i].autor = autor.value.trim();
+                    }
+                    arrayNuevo.push(arrayLibros[i]);
+
+                }
+            }
+            localStorage.setItem('Libros',JSON.stringify(arrayNuevo));
+            //return true
+            window.location.reload(false);
+        });
+
+
+    }
 }
