@@ -105,10 +105,16 @@ class LocalStorageOperation{
                     arrayNuevo.push(arrayLibros[i]);
 
                 }
+                localStorage.setItem('Libros',JSON.stringify(arrayNuevo));
+                window.location.reload(false);
+            }else{
+                Swal.fire(
+                    'Datos incorrectos',
+                    `Los datos no son validos`,
+                    'error'
+                    );
             }
-            localStorage.setItem('Libros',JSON.stringify(arrayNuevo));
             //return true
-            window.location.reload(false);
         });
 
 
